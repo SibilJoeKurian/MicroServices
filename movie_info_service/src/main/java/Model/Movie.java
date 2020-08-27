@@ -1,4 +1,4 @@
-package com.example.movie_info_service;
+package Model;
 
 public class Movie {
 private String movie;
