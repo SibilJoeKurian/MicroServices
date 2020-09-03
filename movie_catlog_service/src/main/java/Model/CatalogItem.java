@@ -34,4 +34,8 @@ private float rating;
     public void setRating(float rating) {
         this.rating = rating;
     }
+
+    public String toString(){
+        return name +" "+desc+" "+String.valueOf(rating);
+    }
 }
