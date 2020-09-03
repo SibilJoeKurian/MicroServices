@@ -5,6 +5,7 @@ import Model.Movie;
 import Model.Rating;
 import Model.Movie;
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,14 +20,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/catalog")
 public class MovieCatalogResource {
+    @Autowired
+    RestTemplate restTemplate;
     @RequestMapping("/{userId}")
     public List<CatalogItem> getCatalog(@PathVariable("userId")String userId){
 
         List<Rating> ratings;
         ratings =  Arrays.asList(new Rating("1234",4),new Rating("2345",3));
-        RestTemplate restTemplate=new RestTemplate();
         Movie movie=new Movie();
-        List<CatalogItem> catlogItem=new ArrayList<CatalogItem>() ;
+        List<CatalogItem> catlogItem=new ArrayList<>() ;
 
         for(int i=0;i<ratings.size();i++){
             String movieId=ratings.get(i).getMovieId();
