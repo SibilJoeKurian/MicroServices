@@ -24,4 +24,8 @@ private float rating;
     public void setRating(float rating) {
         this.rating = rating;
     }
+
+    public String toString(){
+        return movieId +" "+String.valueOf(rating);
+    }
 }
